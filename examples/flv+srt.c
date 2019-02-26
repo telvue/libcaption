@@ -80,6 +80,8 @@ srt_t* srt_from_fd(int fd)
 
         if (eof || (1 == ret && 0 == c)) {
             srt_t* srt = srt_parse(&g_srt_data[0], g_srt_size);
+            // Null out array after parsing
+            memset(g_srt_data, '\0', g_srt_size);
             g_srt_size = 0;
             return srt;
         }

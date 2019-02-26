@@ -105,7 +105,7 @@ srt_t* srt_parse(const utf8_char_t* data, size_t size)
         size -= line_length;
 
         line_length = utf8_line_length(data);
-        // printf ("time (%d): '%.*s'\n", line_length, (int) line_length, data);
+        fprintf(stderr, "time (%d): '%.*s'\n", line_length, (int) line_length, data);
 
         {
             if (8 == sscanf(data, "%d:%2d:%2d%*1[,.]%3d --> %d:%2d:%2d%*1[,.]%3d", &hh1, &mm1, &ss1, &ms1, &hh2, &mm2, &ss2, &ms2)) {
@@ -127,7 +127,7 @@ srt_t* srt_parse(const utf8_char_t* data, size_t size)
             text_size += line_length;
             line_length = utf8_line_length(data);
             trimmed_length = utf8_trimmed_length(data, line_length);
-            // printf ("cap (%d): '%.*s'\n", line_length, (int) trimmed_length, data);
+            fprintf(stderr, "cap (%d): '%.*s'\n", line_length, (int) trimmed_length, data);
             data += line_length;
             size -= line_length;
         } while (trimmed_length);

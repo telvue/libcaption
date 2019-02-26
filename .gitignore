@@ -58,3 +58,6 @@ src/eia608_from_utf8.c
 
 #Doc
 Doxyfile
+
+#SFTP
+sftp-config.json
